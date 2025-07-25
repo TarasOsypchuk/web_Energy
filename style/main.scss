@@ -1,0 +1,97 @@
+@use "variables";
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: variables.$white;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+input,
+button {
+  font-size: 18px;
+  font-family: "Inter Tight", sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: variables.$white;
+}
+.container {
+  width: 1312px;
+  margin: 0 auto;
+}
+header {
+  background-color: variables.$black-100;
+  height: 982px;
+  .header__nav {
+    @include variables.body;
+    position: relative;
+    .header-bg {
+      position: absolute;
+      top: 0px;
+      right: -100px;
+      z-index: 1;
+    }
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &_left {
+      z-index: 10;
+      display: flex;
+      gap: 20px;
+      p {
+        display: flex;
+        flex-flow: column;
+        color: variables.$white;
+        span {
+          color: variables.$dark-gray;
+        }
+      }
+    }
+    &_right {
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      color: variables.$white;
+      &-link-contact {
+        padding: 16px 40px;
+        border-radius: 40px;
+        background-color: #ffffffa3;
+      }
+    }
+  }
+  .header__body {
+    display: flex;
+    flex-flow: column;
+    gap: 48px;
+    margin-top: 450px;
+    color: variables.$white;
+    &-title {
+      @include variables.h1;
+      width: 292px;
+    }
+    &-text {
+      @include variables.body;
+      width: 532px;
+    }
+    &-button {
+      @include variables.body;
+      width: 217px;
+      height: 57px;
+      border-radius: 40px;
+      background-color: variables.$white;
+      color: variables.$black-100;
+    }
+  }
+}
