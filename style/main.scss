@@ -16,6 +16,7 @@ input,
 button {
   font-size: 18px;
   font-family: "Inter Tight", sans-serif;
+  border: none;
 }
 
 button {
@@ -28,6 +29,12 @@ a {
 .container {
   width: 1312px;
   margin: 0 auto;
+}
+h1 {
+  @include variables.h1;
+}
+h2 {
+  @include variables.h2;
 }
 header {
   background-color: variables.$black-100;
@@ -64,10 +71,32 @@ header {
       align-items: center;
       gap: 32px;
       color: variables.$white;
+      &-link {
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: variables.$white;
+          opacity: 0;
+          transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        &:hover::before {
+          opacity: 1;
+        }
+      }
       &-link-contact {
         padding: 16px 40px;
         border-radius: 40px;
-        background-color: #ffffffa3;
+        background-color: rgba(255, 255, 255, 0.3392156863);
+        transition: all 0.3s;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.6392156863);
+        }
       }
     }
   }
@@ -78,7 +107,6 @@ header {
     margin-top: 450px;
     color: variables.$white;
     &-title {
-      @include variables.h1;
       width: 292px;
     }
     &-text {
@@ -92,6 +120,195 @@ header {
       border-radius: 40px;
       background-color: variables.$white;
       color: variables.$black-100;
+      transition: all 0.5s;
+      &:hover {
+        background-color: variables.$black-100;
+        color: variables.$white;
+        border: 1px solid variables.$white;
+      }
+    }
+  }
+}
+main {
+  .expertise {
+    display: flex;
+    flex-direction: column;
+    margin-top: 140px;
+    gap: 40px;
+    &-text {
+      @include variables.body;
+      width: 757px;
+    }
+    &__cards {
+      display: flex;
+      gap: 20px;
+      &-card {
+        width: 313px;
+        height: 375px;
+        border-radius: 8px;
+        @include variables.body;
+        color: variables.$white;
+        padding-top: 318px;
+        padding-left: 32px;
+        &-1 {
+          background-image: url(../assets/expertise-1.png);
+        }
+        &-2 {
+          background-image: url(../assets/expertise-2.png);
+        }
+        &-3 {
+          background-image: url(../assets/expertise-3.png);
+        }
+        &-4 {
+          background-image: url(../assets/expertise-4.png);
+        }
+      }
+    }
+  }
+  .text {
+    margin-top: 140px;
+    display: flex;
+    color: variables.$black-85;
+    justify-content: end;
+    p {
+      width: 779px;
+      @include variables.body;
+    }
+  }
+  .more {
+    margin-top: 270px;
+    background-color: variables.$light-gray;
+    &-container {
+      position: relative;
+      height: 590px;
+      display: flex;
+      justify-content: end;
+    }
+    &-img {
+      position: absolute;
+      top: -70px;
+      left: 0px;
+    }
+    &__body {
+      margin-top: 82px;
+      display: flex;
+      flex-flow: column;
+      gap: 40px;
+      &-text {
+        @include variables.body;
+        color: variables.$black-85;
+        width: 787px;
+      }
+      &-button {
+        color: variables.$black-100;
+        width: fit-content;
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: variables.$black-100;
+          opacity: 0;
+          transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        &:hover::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .contact {
+    margin-top: 100px;
+    display: flex;
+    flex-flow: column;
+    gap: 40px;
+    &-text {
+      @include variables.body;
+      width: 779px;
+      color: variables.$black-85;
+    }
+    &-button {
+      color: variables.$black-100;
+      width: fit-content;
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: variables.$black-100;
+          opacity: 0;
+          transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        &:hover::before {
+          opacity: 1;
+        }
+    }
+  }
+}
+
+footer {
+  background-color: variables.$black-100;
+  height: 423px;
+  margin-top: 140px;
+  padding-top: 104px;
+  .footer__top {
+    display: flex;
+    justify-content: space-between;
+    &__left {
+      display: flex;
+      gap: 120px;
+      &_texts {
+        display: flex;
+        flex-flow: column;
+        color: variables.$white;
+        &-title {
+          margin-bottom: 16px;
+          @include variables.body;
+          font-size: 21px;
+        }
+        &-text {
+          margin-bottom: 8px;
+          @include variables.body;
+          width: fit-content;
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: variables.$white;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+          }
+
+          &:hover::before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  .footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include variables.label;
+    margin-top: 70px;
+    &-name {
+      color: variables.$white;
+    }
+    &-lastwords {
+      color: #ffffffa6;
     }
   }
 }
